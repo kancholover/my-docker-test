@@ -8,6 +8,10 @@ WORKDIR /src
 # pip를 사용하여 poetry를 설치한다.
 RUN pip install poetry
 
+# Gemini 수정 
+# 컨테이너 안에 가상환경을 생성하지 않도록 강제합니다.
+RUN poetry config virtualenvs.create false
+
 # poetry의 정의 파일 복사 (존재하는 경우)
 COPY pyproject.toml* poetry.lock* ./
 
