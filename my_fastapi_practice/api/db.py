@@ -11,6 +11,6 @@ db_Session = sessionmaker(autocommit=False, autoflush=False, bind=db_engine)
 Base = declarative_base()
 
 def get_db():
-    with db_session() as session:
+    with db_Session() as session:
         yield session
 #라우터에서는 get_db() 함수로 이 세션을 가져와 DB에 접근할 수 있도록 한다. 
